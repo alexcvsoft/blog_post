@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Blog Post CRUD{% endblock %}</title>
+  {% block stylesheets %}
+    <!--  stylesheets or CSS links go here -->
+  {% endblock %}
+</head>
+<body>
+    <h1>Welcome to the Blog Post CRUD</h1>
+    <nav>
+        <!-- navigation links go here -->
+    </nav>
+    <main>
+        {% block content %}
+            <p><a href="{% url 'blog:blogpost_create' %}"><button>Create a New Post</button></a></p>            
+            <p><a href="{% url 'blog:blogpost_list' %}"><button>Read your posts</button></a></p>
+        {% endblock %}
+    </main>
+    {% block scripts %}
+    <!-- JavaScript or script tags -->
+    {% endblock %}
+</body>
+</html>

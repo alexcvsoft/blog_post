@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block title %}List of posts{% endblock%}
+
+
+{% block content %}
+    <h2>You can read all your posts here</h2>
+    <h3>You can also edit and delete your posts by clicking the buttons to the left of each post</h3>
+    {% if object_list %}
+        {% for post in object_list %}
+            <p>
+                <a href="{% url 'blog:blogpost_edit' pk=post.pk %}"><button type='button'>Edit</button></a>  
+                <a href="{% url 'blog:blogpost_delete' pk=post.pk %}"><button type='button'>Delete</button></a>  
+                {{post.content}}
+            </p>
+        {% endfor %}
+    {% else %}
+            <p>No posts found.</p>
+    {% endif %}
+    
+    <a href="{% url 'blog:main_page' %}"><button type='button'>Back to Main</button></a>
+{% endblock %}
+    
